@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- Used for alert's close button -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src = "{{ url_for('static', filename = 'login.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" style="pointer-events: none; cursor: default;">Bookstore</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="home_page">Home</a></li>
+          <!--<li><a href="book_display">Books</a></li>
+          <li><a href="#">Page 2</a></li>-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li class="active"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="information_text" class="alert alert-info alert-dismissable fade in" style="display=none; margin-left:20px; margin-right:20px;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p id="information_text_message"></p>
+    </div>
+
+    <div class="panel panel-primary" style="margin-left:20px;margin-right:20px;">
+      <div class="panel-heading"><h3>Log In:</h3></div>
+      <div class="panel-body">
+        <form method="POST" action="/validate_log_in">
+        <div class = "form-group">
+            <input type="name" name="inputUsername" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <br>
+            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+        </div>
+        <input class="btn btn-primary" type = "submit" value="Submit">
+        </form>
+      </div>
+    </div>
+
+    <!--<h1>Log In:</h1>
+    <form method="POST" action="/validate_log_in">
+        <div class = "form-group">
+            <input type="name" name="inputUsername" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+        </div>
+        <input class="btn btn-primary" type = "submit" value="submit">
+    </form>-->
+
+    <!--<img src="{{url_for('static', filename='img/img_parallax.jpg')}}" class="img-rounded">-->
+    <p id="validation_message" style="display:none;">{{ validation_message }}</p>
+
+
+</body>
+</html>

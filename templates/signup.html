@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src = "{{ url_for('static', filename = 'signup.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" style="pointer-events: none; cursor: default;">Bookstore</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="home_page">Home</a></li>
+          <!--<li><a href="book_display">Books</a></li>
+          <li><a href="#">Page 2</a></li>-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="panel panel-primary" style="margin-left:20px;margin-right:20px;">
+      <div class="panel-heading"><h3>Sign Up:</h3></div>
+      <div class="panel-body">
+        <form method="POST" action="/submitSignUpForm">
+            <div class = "form-group">
+
+                <p id="validateNameMessage"></p>
+                <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" oninput="validateUsername()" required autofocus>
+                <br>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <br>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+                <!--<input type="date" name="bday" min="01-12-2000" max="01-12-2001" placeholder="dd-mm-yyyy" required>-->
+                <br>
+                <input type="number" class="form-control" min="1" max="99" name="age" id="inputage" placeholder="Age" required>
+                <br>
+                <label>Select Profile Picture: <br>(Default picture will be used if no picture is selected.)</label>
+                <!--<div class="checkbox">
+                    <label><input type="checkbox" id="profilepicturecheckbox" value="" checked>Use Default Profile Picture</label>
+                </div>-->
+                <div id="profilepicturediv">
+
+                    <input id='fileInput' type="file" name="image" accept="image/*">
+                    <output id="list"></output>
+                </div>
+                <textarea id="hiddenImageToStore" name="hiddenImageToStore" style="display:none;"></textarea>
+            </div>
+            <input id="submitBtn" class="btn btn-primary" type = "submit" value="Submit">
+        </form>
+      </div>
+    </div>
+</body>
+</html>
